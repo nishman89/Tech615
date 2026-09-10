@@ -88,4 +88,5 @@ public class AppTest {
     public void givenATime_Greeting_returnsAnAppropriateGreeting(String greeting, int time){
         Assertions.assertEquals(greeting, App.getGreeting(time));
     }
+
 }
