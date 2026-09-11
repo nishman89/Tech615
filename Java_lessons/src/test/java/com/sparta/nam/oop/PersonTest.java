@@ -33,7 +33,7 @@ public class PersonTest {
             "-5, 20"
     })
     public void setAgeTest(int inputAge, int expectedNewAge) {
-        Person p = new Person("Cathy", "French", 20);
+        Person p = new Person("Nish", "Mandal", 20);
         p.setAge(inputAge);
         Assertions.assertEquals(expectedNewAge, p.getAge());
     }
