@@ -1,6 +1,6 @@
 package com.sparta.nam.oop;
 
-public class Vehicle {
+public class Vehicle implements Movable{
 
     private int capacity;
     private int numPassengers = 0;
@@ -42,11 +42,12 @@ public class Vehicle {
         }
     }
 
+    @Override
     public String move() {
         position += speed;
         return "Vehicle moved to position " + position;
     }
-
+    @Override
     public String move(int times) {
         position += speed * times;
         return "Vehicle moved " + times + " time(s) to position " + position;

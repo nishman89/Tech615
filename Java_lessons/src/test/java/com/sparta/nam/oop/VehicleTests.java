@@ -13,12 +13,13 @@ public class VehicleTests {
 
     @BeforeEach
     void setUp() {
-        vehicle = new Vehicle(10, 0, 0, 5);
+        Vehicle vehicle = new Vehicle(10, 0, 0, 5);
     }
 
     @Test
     @DisplayName("Default constructor creates a vehicle with all zero values")
     void defaultConstructorTest() {
+
         Vehicle v = new Vehicle();
         Assertions.assertEquals(0, v.getCapacity());
         Assertions.assertEquals(0, v.getSpeed());

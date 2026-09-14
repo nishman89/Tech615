@@ -1,6 +1,6 @@
 package com.sparta.nam.oop;
 
-public class Person {
+public class Person implements Movable{
     private String firstName;
     private String lastName;
     protected int age;
@@ -42,5 +42,15 @@ public class Person {
     @Override
     public String toString() {
         return getFullName() + " is " + age;
+    }
+
+    @Override
+    public String move() {
+        return "Walking along";
+    }
+
+    @Override
+    public String move(int times) {
+        return "Walking along " + times + " times.";
     }
 }
