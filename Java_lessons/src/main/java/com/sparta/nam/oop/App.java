@@ -28,7 +28,6 @@ public class App {
         // Hunter.shoot(); // shoot is NOT a static method. I must create a Hunter object to use the shoot method
 //        System.out.println(Hunter.sayHello()); // I do not need to create a Object from the class to use a static method
 
-        Math.sqrt();
     }
 
 
