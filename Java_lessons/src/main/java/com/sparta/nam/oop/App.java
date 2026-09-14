@@ -3,6 +3,7 @@ package com.sparta.nam.oop;
 public class App {
     public static void main(String[] args) {
         Person nish = new Person("Nish", "Mandal", -1);
+        Vehicle example = new Vehicle();
         System.out.println(nish.getAge());
 //        nish.setAge(37);
 //        System.out.println(nish.getAge());
