@@ -3,7 +3,7 @@ package com.sparta.nam.oop;
 public class Person {
     private String firstName;
     private String lastName;
-    private int age;
+    protected int age;
 
     public Person(String firstName, String lastName, int age) {
         this(firstName, lastName);
@@ -14,6 +14,7 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+   public Person(){}
 
     public String getFullName(){
         return firstName + " " + lastName;
@@ -38,5 +39,8 @@ public class Person {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return getFullName() + " is " + age;
+    }
 }
