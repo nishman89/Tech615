@@ -14,8 +14,14 @@ public class App {
 //        add(1,2);
 //        add(1,2,3);
 
+        int  x;
+        char y;
+        boolean z;
+        String s; // null
+
         Hunter mikyle = new Hunter("Mikyle", "Yakub", 25, "Canon");
         Hunter ramla = new Hunter("Ramla", "Ramla", 21, "Nikon");
+        Hunter nish4 = mikyle;
 //        System.out.println(mikyle.getAge());
 //        System.out.println(mikyle.shoot());
 //        Vehicle vec = new Vehicle(1,1,1,1);
