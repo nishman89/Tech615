@@ -2,7 +2,7 @@ package com.sparta.nam.oop;
 
 import java.util.Objects;
 
-public class Person implements Comparable<Person>{
+public class Person{
     private String firstName;
     private String lastName;
     protected int age;
