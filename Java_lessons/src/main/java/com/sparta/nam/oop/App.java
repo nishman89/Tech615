@@ -1,5 +1,10 @@
 package com.sparta.nam.oop;
 
+import java.util.HashSet;
+import java.util.List;
+
+import static java.util.List.*;
+
 public class App {
     public static void main(String[] args) {
         Person nish = new Person("Nish", "Mandal", 1);
@@ -22,6 +27,25 @@ public class App {
         Hunter mikyle = new Hunter("Mikyle", "Yakub", 25, "Canon");
         Hunter ramla = new Hunter("Ramla", "Ramla", 21, "Nikon");
         Hunter nish4 = mikyle;
+
+//        int x = 1;
+//        int y = 1;
+//        System.out.println(x == y);
+        Person nish1 = new Person("Nish", "Mandal", 36);
+        Person nish2 = new Person("Nish", "Mandal", 36);
+        Person nish3 = nish1;
+        System.out.println(nish2.equals(nish1));
+        System.out.println(nish2.equals(nish1));
+        System.out.println(nish2.equals(nish1));
+        System.out.println(nish1.hashCode());
+        System.out.println(nish2.hashCode());
+        System.out.println(nish3.hashCode());
+
+        HashSet<Person> personSet = new HashSet<>(of(nish1,nish2,nish3));
+        System.out.println(personSet);
+
+
+
 //        System.out.println(mikyle.getAge());
 //        System.out.println(mikyle.shoot());
 //        Vehicle vec = new Vehicle(1,1,1,1);
@@ -37,10 +61,10 @@ public class App {
         // Polymorphc Arrays
 
 //        Person[] objs = new Person[2];
-        Person nish1 = new Person("Nish", "Mandal", 19);
-        Person nish2 = new Hunter("Nish", "Kumar", 29, "Nikon");
-        Vehicle v1 = new Vehicle(12,20);
-        Airplane a1 = new Airplane(12,20,"NishFlies");
+//        Person nish1 = new Person("Nish", "Mandal", 19);
+//        Person nish2 = new Hunter("Nish", "Kumar", 29, "Nikon");
+//        Vehicle v1 = new Vehicle(12,20);
+//        Airplane a1 = new Airplane(12,20,"NishFlies");
 
 //        objs[0] = nish1;
 //        objs[1] = nish2;
@@ -53,10 +77,7 @@ public class App {
 //
 //        spartaWrite(nish1);
 
-        Movable[] moveables = {nish1,nish2,v1,a1};
-        for (Movable movable:moveables){
-            System.out.println(movable.move());
-        }
+
 
 
     }
