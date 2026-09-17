@@ -23,6 +23,8 @@ public class App {
         // Boundary Value Analysis - most erros take place on the boundary
         // Write tests
 
+        // Update the getGreeting() method so it throws an Exception if time is less then 0 or more than 23. Write units tests
+
 
     }
     public static String getClassificationsByAge(int ageOfViewer)

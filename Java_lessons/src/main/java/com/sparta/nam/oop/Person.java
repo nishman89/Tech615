@@ -2,7 +2,7 @@ package com.sparta.nam.oop;
 
 import java.util.Objects;
 
-public class Person{
+public class Person implements Comparable<Person>{
     private String firstName;
     private String lastName;
     protected int age;
@@ -67,19 +67,17 @@ public class Person{
         return Objects.hash(firstName,lastName,age);
     }
 
-//    @Override
-//    public int compareTo(Person other) {
-//        if (other == null) {
-//            return 1;
-//        }
-//        int lastNameCompare =  this.lastName.compareTo(other.lastName);
-//        if (lastNameCompare != 0) return lastNameCompare;
-//
-//        // last names are equal, compare to the first name
-//        int firstNameCompare = this.firstName.compareTo(other.firstName);
-//        if (firstNameCompare != 0) return firstNameCompare;
-//
-//        // name are equal, sort by age
-//        return this.age == other.age;
-//    }
+    @Override
+    public int compareTo(Person other) {
+        if (other == null) {
+            return 1;
+        }
+        int lastNameCompare = this.lastName.compareTo(other.lastName);
+        if (lastNameCompare != 0) return lastNameCompare;
+
+        int firstNameCompare = this.firstName.compareTo(other.firstName);
+        if (firstNameCompare != 0) return firstNameCompare;
+
+        return Integer.compare(this.age, other.age);
+    }
 }
