@@ -46,6 +46,8 @@ public class SpartanService {
         return newSpartans;
     }
 
+
+
     public boolean removeSpartan(int id) {
         return repository.remove(id);
     }
