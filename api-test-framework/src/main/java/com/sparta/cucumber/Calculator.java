@@ -1,5 +1,7 @@
 package com.sparta.cucumber;
 
+import java.util.List;
+
 public class Calculator {
 
     private Integer num1;
@@ -19,5 +21,11 @@ public class Calculator {
 
     public int subtract(){
         return num1 - num2;
+    }
+
+
+    public int divide(){
+        if (num2 == 0) throw new ArithmeticException("Divisor cannot be zero.");
+        return num1 / num2;
     }
 }
