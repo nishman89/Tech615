@@ -1,5 +1,6 @@
 package com.sparta.restassured.tests;
 
+import com.sparta.restassured.pojos.SinglePostcodeResponse;
 import com.sparta.restassured.utils.Config;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -13,9 +14,11 @@ public class SimplePostcodeTest {
 
     private static Response response;
     private static final String BASE_URI = Config.getBasePostcodeUri();
+    private static SinglePostcodeResponse pojoResponse;
 
     @BeforeAll
     static void setup(){
+
         response = RestAssured
                 .given()
                     .baseUri(BASE_URI)
@@ -24,12 +27,15 @@ public class SimplePostcodeTest {
                     .when()
                     .get("/EC2Y5AS")
                 .thenReturn();
+        pojoResponse = response.as(SinglePostcodeResponse.class);
+
     }
 
     @Test
     @DisplayName("Status code 200 returned")
     void testStatusCode200(){
         MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
+        MatcherAssert.assertThat(pojoResponse.getStatus(), Matchers.is(200));
     }
 
     @Test
@@ -42,6 +48,7 @@ public class SimplePostcodeTest {
     @DisplayName("Correct postcode returned in response")
     void testCorrectPostcodeReturnedInResponse(){
         MatcherAssert.assertThat(response.jsonPath().getString("result.postcode"), Matchers.is("EC2Y 5AS"));
+        MatcherAssert.assertThat(pojoResponse.getResult().getPostcode(), Matchers.is("EC2Y 5AS"));
     }
 
     @Test
