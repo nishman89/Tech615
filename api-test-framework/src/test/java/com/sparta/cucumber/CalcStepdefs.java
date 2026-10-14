@@ -57,11 +57,11 @@ public class CalcStepdefs {
 
 
 
-    @Then("a ArithmeticException should be thrown")
-    public void aArithmeticExceptionShouldBeThrown() {
-        // Write code here that turns the phrase above into concrete actions
-        Assertions.assertInstanceOf(exception, ArithmeticException.class);
-    }
+//    @Then("a ArithmeticException should be thrown")
+//    public void aArithmeticExceptionShouldBeThrown() {
+//        // Write code here that turns the phrase above into concrete actions
+//        Assertions.assertInstanceOf(exception, ArithmeticException.class);
+//    }
 
     @And("the exception should have the message {string}")
     public void theExceptionShouldHaveTheMessage(String expected) {

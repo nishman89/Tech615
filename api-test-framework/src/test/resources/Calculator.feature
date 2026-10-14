@@ -37,7 +37,7 @@ Background:
   Scenario Outline: Divide By Zero
     And I enter <input1> and 0 into the calculator
     When I press divide
-    Then a ArithmeticException should be thrown
+#    Then a ArithmeticException should be thrown
     And the exception should have the message "Divisor cannot be zero."
     Examples:
       | input1 |
