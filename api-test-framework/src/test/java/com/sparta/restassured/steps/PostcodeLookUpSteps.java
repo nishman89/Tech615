@@ -16,14 +16,7 @@ public class PostcodeLookUpSteps {
     private RequestSpecification request;
     private Response response;
 
-    @Given("I am using the postcodes API with the base path is set to {string}")
-    public void iAmUsingThePostcodesAPIWithTheBasePathIsSetTo(String basePath) {
-        request = RestAssured
-                .given()
-                .header("Accept", "application/json")
-                .baseUri(Config.getBasePostcodeUri())
-                .basePath(basePath);
-    }
+
 
     @When("I look up the postcode {string}")
     public void iLookUpThePostcode(String postcode) {
