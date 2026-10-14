@@ -1,26 +1,24 @@
-package com.sparta.restassured;
+package com.sparta.restassured.tests;
 
+import com.sparta.restassured.utils.Config;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.List;
-
 public class SimplePostcodeTest {
 
     private static Response response;
+    private static final String BASE_URI = Config.getBasePostcodeUri();
 
     @BeforeAll
     static void setup(){
         response = RestAssured
                 .given()
-                    .baseUri("https://api.postcodes.io")
+                    .baseUri(BASE_URI)
                     .basePath("/postcodes")
                 .header("Accept", "text/json")
                     .when()
@@ -44,6 +42,14 @@ public class SimplePostcodeTest {
     @DisplayName("Correct postcode returned in response")
     void testCorrectPostcodeReturnedInResponse(){
         MatcherAssert.assertThat(response.jsonPath().getString("result.postcode"), Matchers.is("EC2Y 5AS"));
+    }
+
+    @Test
+    @DisplayName("Number of code returned is 14")
+    void testNumberOfCodesReturnedis14(){;
+
+        var size = response.jsonPath().getMap("result.codes").size();
+        MatcherAssert.assertThat( size,Matchers.is(29));
     }
 
 
