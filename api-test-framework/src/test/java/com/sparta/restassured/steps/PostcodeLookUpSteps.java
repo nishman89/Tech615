@@ -1,6 +1,7 @@
 package com.sparta.restassured.steps;
 
 import com.sparta.restassured.utils.Config;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,6 +17,14 @@ public class PostcodeLookUpSteps {
     private RequestSpecification request;
     private Response response;
 
+    @Given("I am using the postcodes API with the base path is set to {string}")
+    public void iAmUsingThePostcodesAPIWithTheBasePathIsSetTo(String basePath) {
+        request = RestAssured
+                .given()
+                .header("Accept", "application/json")
+                .baseUri(Config.getBasePostcodeUri())
+                .basePath(basePath);
+    }
 
 
     @When("I look up the postcode {string}")
@@ -41,5 +50,12 @@ public class PostcodeLookUpSteps {
     public void theRegionShouldBe(String expectedRegion) {
         String actualRegion = response.jsonPath().getString("result.region");
         MatcherAssert.assertThat(actualRegion, Matchers.is(expectedRegion));
+    }
+
+    @And("the returned postcode matches the correct UK format")
+    public void theReturnedPostcodeMatchesTheCorrectUKFormat() {
+        String postcode = response.jsonPath().getString("result.postcode");
+        String postcodeRegex = "^[A-Z]{1,2}[0-9]{1,2}[A-Z]?(\\s*[0-9][A-Z]{1,2})?$";
+        MatcherAssert.assertThat("Postcode does not match UK format", postcode.matches(postcodeRegex));
     }
 }

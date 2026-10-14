@@ -12,6 +12,7 @@ Feature: Postcode Lookup
     Then I should get a 200 response code
       And the returned postcode should be "EC2Y 5AS"
       And the region should be "London"
+      And the returned postcode matches the correct UK format
 
 
   @Sad
