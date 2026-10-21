@@ -2,17 +2,15 @@ package com.nam.sparta.steps;
 
 import com.nam.sparta.pages.HomePage;
 import com.sparta.serenity.pages.*;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Managed;
-import org.openqa.selenium.WebDriver;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-public class LoginSteps {
+public class LoginStepDefs {
 
     @Managed
     HomePage homePage;
@@ -24,12 +22,12 @@ public class LoginSteps {
         homePage.open();
     }
     @Given("I have entered the username {string}")
-    public void i_have_entered_the_username(String string) {
+    public void i_have_entered_the_username(String username) {
         // Write code here that turns the phrase above into concrete actions
         homePage.enterUserName(username);
     }
     @Given("I have entered the password {string}")
-    public void i_have_entered_the_password(String string) {
+    public void i_have_entered_the_password(String password) {
         // Write code here that turns the phrase above into concrete actions
         homePage.enterPassword(password);
     }
