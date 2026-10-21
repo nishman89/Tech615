@@ -2,10 +2,16 @@ package com.nam.sparta.steps;
 
 import com.nam.sparta.pages.HomePage;
 import com.sparta.serenity.pages.*;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Managed;
+
+import javax.xml.crypto.Data;
+import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -48,5 +54,12 @@ public class LoginStepDefs {
         // Write code here that turns the phrase above into concrete actions
         assertThat(homePage.getErrorMessage(), containsString(expected));
 
+    }
+
+    @And("I have entered the following credentials:")
+    public void iHaveEnteredTheFollowingCredentials(DataTable dataTable) {
+        Map<String, String> creds = dataTable.asMap(String.class, String.class);
+        homePage.enterUserName(creds.get("username"));
+        homePage.enterPassword(creds.get("password"));
     }
 }

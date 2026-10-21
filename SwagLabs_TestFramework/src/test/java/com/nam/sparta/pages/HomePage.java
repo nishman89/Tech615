@@ -1,5 +1,6 @@
 package com.nam.sparta.pages;
 
+import com.nam.sparta.utils.Credentials;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
@@ -19,9 +20,9 @@ public class HomePage extends PageObject {
     @FindBy(className =  "error-message-container")
     private WebElementFacade errorMessage;
 
-    public void enterValidCredentials(String username, String password){
-        userNameField.type(username);
-        passwordField.type(password);
+    public void enterCredentials(Credentials credentials){
+        userNameField.type(credentials.username());
+        passwordField.type(credentials.password());
 
     }
     public void enterUserName(String username) {
